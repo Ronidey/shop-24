@@ -1,0 +1,22 @@
+extends base
+    
+block content
+  main
+    .container-fluid.form-container.d-flex.align-items-center
+      form#signupForm.form
+        fieldset
+          legend.fw-bolder.text-primary Signup
+          .mb-3
+            label.form-label(for="name") Name
+            input#name.form-control(type="text" name="name" required)
+          .mb-3
+            label.form-label(for="email") Email address
+            input#email.form-control(type="email" aria-describedby="emailHelp" name="email" required)
+            #emailHelp.form-text We'll never share your email with anyone else.
+          .mb-3
+            label.form-label(for="password") Password
+            input#password.form-control(type="password" name="password" required)
+          p
+            | Already have an account?  
+            a(href="/login") login
+          button.btn.btn-primary(type="submit" name="btnSubmit") Sign Up

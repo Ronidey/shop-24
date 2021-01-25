@@ -1,0 +1,15 @@
+extends base
+
+block head
+  script(src="https://js.stripe.com/v3/")
+    
+block content
+  include partials/_header.pug
+  main
+    section#cart.py-5
+      .container.cart-container#cartContainer
+        h1.fs-3 Shopping Cart
+        hr
+        #cartItems
+        #cartCheckout.cart__checkout.text-end
+        button#btnCheckout.btn.btn-success.mt-3.fw-bold.d-block.w-100.py-2.mt-4 Checkout Now

@@ -1,0 +1,44 @@
+header.header
+  .container
+    .d-flex.align-items-center
+      a.me-auto.me-md-5(href="/")
+        img.logo(src="/images/logo.svg", alt="logo")
+
+      form.search-form.flex-grow-1.mx-auto.d-none.d-md-flex
+        input.flex-grow-1(type="search" name="search" placeholder="Search")
+        button.btn-icon(type="submit")
+          svg
+            use(href="/images/sprites.svg#search")
+
+      form#searchFormMob.search-form-mob
+        button#closeSearch.btn-icon(type="button" aria-label="close search")
+          svg
+            use(href="/images/sprites.svg#arrow-left")
+        input.flex-grow-1(type="search" name="search" placeholder="Search")
+        button.btn-icon(type="submit")
+          svg
+            use(href="/images/sprites.svg#search")
+
+
+      //- Search Icon
+      nav.header__nav.d-flex.ms-md-5
+        button#openSearch.btn-icon.me-3.d-md-none(aria-label="open search")
+          svg
+            use(href="/images/sprites.svg#search")
+
+        //- Cart Icon
+        a#headerCart.header__cart.link-icon.text-decoration-none.me-3(href="/my-cart" aria-label="go to my cart")
+          svg
+            use(href="/images/sprites.svg#cart")
+          span 0
+
+        //- Login, Signup, User
+        if (currentUser)
+          a.link-icon(href="/profile" aria-label="go to profile")
+            svg
+              use(href="/images/sprites.svg#user")
+        else
+          if (hasAccount)
+            a.btn.btn-outline-primary.fw-bold(href="/login") Login
+          else 
+            a.btn.btn-outline-primary.fw-bold(href="/signup") Signup

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="shortcut icon", href="/images/favicon.png", type="image/x-icon")
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+    style.
+      img {
+        max-width: 600px;
+        display: block;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1rem;
+      }
+
+      main {
+        padding: 4rem 0;
+      } 
+  body
+    main.d-flex.justify-content-center.align-items-center.text-center
+      .container
+        img.img-responsive(src=`/images/${statusCode === 404 ? "page-not-found" : "error"}.svg`, alt=`${message}`)
+        h2.text-primary Oops! Something went wrong:(
+        p.fs-4.text-secondary= message

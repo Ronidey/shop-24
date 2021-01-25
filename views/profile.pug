@@ -1,0 +1,48 @@
+extends base
+    
+block content
+  section.profile
+    header.profile__header
+      a.btn-go-back(href="/" aria-label="Go back to homepage")
+        svg
+          use(href="/images/sprites.svg#arrow-left")
+
+      button#btnLogout.btn-logout.btn.btn-outline-light.d-flex.align-items-center.fw-bold
+        | Logout &nbsp;
+        svg
+          use(href="/images/sprites.svg#logout")
+
+      .user
+        .user__img.d-flex.justify-content-center.align-items-center
+          svg
+            use(href="/images/sprites.svg#user")
+        p.fs-5.mb-1= user.name
+        p.user__email.fs-5= user.email
+
+    .profile__body.px-3
+
+      if (orders.length > 0)
+        h1.mb-4.text-center My Orders
+
+        each order in orders
+          .order-card.bg-light
+            header.order-card__header
+              p.text-end.text-secondary= new Date(order.createdAt).toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})
+            .ps-3
+              ol.order-card__menu
+                each product in order.products
+                  li= product.title
+
+              footer.d-flex.justify-content-between.align-items-end.flex-wrap
+                div.me-3
+                  p.text-secondary.mb-0
+                    small Amount paid: #{order.totalAmount}
+                  p.text-secondary.mb-2.mb-sm-0
+                    small Expected delivery: Tomorrow
+                button.btn-cancel-order.btn.btn-sm.btn-danger(data-order-id=`${order._id}`) Cancel order
+
+      else
+        .empty-cart-msg.text-center.text-secondary
+          h1.text-capitalize.mb-3 No orders to show (&gt;_&lt;)
+          p.fs-4.lead Let's do some shopping!!!
+          a.btn.btn-primary(href="/") Go Shopping

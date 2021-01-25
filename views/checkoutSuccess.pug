@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Order Successfully Placed
+    link(rel="shortcut icon", href="/images/favicon.png", type="image/x-icon")
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/main.css")
+    style.
+      .order-success__img {
+        width: 100%;
+        max-width: 600px;
+      }
+      
+    script.
+      localStorage.clear();
+
+      window.addEventListener("load", function() {
+        document.getElementById("loading").classList.add("fade-out");
+      });
+      
+  body
+    include partials/_loading.pug
+    section.order-success.py-5
+      .container.text-center
+        img.order-success__img(src="/images/order-success.svg", alt="")
+        h1.display-4.text-primary.text-center.mb-4 Order Successfully Placed!!!
+        a.btn.btn-primary(href="/") Shop more

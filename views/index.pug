@@ -1,0 +1,28 @@
+extends base
+
+block content
+  include partials/_header.pug
+  main
+    section.all-products
+      .container
+        if (metadata.results === 0)
+          .empty-cart-msg.text-center.text-secondary
+            h1.text-capitalize.mb-3 No Results found (&gt;_&lt;)
+            p.fs-4.lead We are really sorry!!!
+        else
+          header.all-products__header.text-center.mb-5
+            h1.text-uppercase.text-danger Winter sale
+            p.text-capitalize.text-secondary.fs-5 Best deals just for you
+          .row#productsContainer
+            each product of products
+              .col-sm-6.col-md-4.col-lg-3.mb-5
+                a.text-decoration-none(href=`/products/${product._id}`)
+                  .card.product-card
+                    .p-3
+                      img.card-img-top(src=`${product.imagePath}` alt="")
+                    .card-body.text-dark
+                      h5.card-title= product.title
+                      p.price.fw-bold.fs-5 &#8377; #{product.price}
+            
+          if (metadata.totalResults > metadata.limit)
+            button#loadMore.btn.btn-outline-primary.d-block.mx-auto.fw-bold Load more

@@ -1,0 +1,40 @@
+extends base
+
+block content
+  include partials/_header.pug
+  main
+    section#product
+      .container
+        .row
+          .col-12.col-lg-5
+            .product__img.text-center
+              img.img-fluid(src=`${product.imagePath}`, alt=`${product.title}`)
+
+          .col-12.col-lg-7
+            .product__info
+              header.mb-3
+                h2.fw-normal.text-capitalize.mb-2= product.title
+                .product__ratings.d-flex
+                  .stars.text-warning.me-1.fs-6
+                    -for (let i = 1; i <= 5; i++) {
+                      if ( i <= Math.floor(product.avgRating))
+                        svg.me-1
+                          use(href="/images/sprites.svg#star-filled")
+                      else
+                        svg.me-1
+                          use(href="/images/sprites.svg#star-outline")
+                    -}
+                  p.text-secondary #{product.avgRating} (#{product.ratingsQty} ratings)
+
+                .product__price
+                  h4.fw-light Price &#8377;#{product.price}
+                  if (product.price > 500)
+                    span.badge.bg-dark &check; Eligible for FREE delivery
+              
+              ul.product__decription.lh-lg.mb-5
+                each desc in product.description
+                  li= desc
+
+              div
+                a#btnBuyNow.btn.btn-danger.me-3.fw-bold(href="#" data-product=`${JSON.stringify(product)}`) Buy Now
+                button#btnAddToCart.btn.btn-warning.text-capitalize.fw-bold(data-product=`${JSON.stringify(product)}` data-task="add") Add to cart
