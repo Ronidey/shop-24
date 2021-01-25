@@ -1,6 +1,6 @@
 # Shop24
 
-An awesome Shopping website. See all the items, read the descriptions, add them to you shopping cart and buy, thought this site is NOT REAL. It is one of my projects😃.
+An awesome website for Shopping. Check all the BEST deals available for you, read the product description, add products to you shopping cart and buy. This site is NOT REAL😛. It is one of my projects😃.
 
 ## Techonogolies used to build this website
 
